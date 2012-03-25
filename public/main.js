@@ -10,15 +10,15 @@
       x_max           = 250,
       y_max           = 220;
 
-  var demos     = { '#hv_1_1':   'ze_data.json',
-                    '#hv_1_2':   'ze_test.json',
-                    '#hv_1_3':   'ze_test.json',
-                    '#hv_2_1':   'ze_test.json',
-                    '#hv_2_2':   'ze_test.json',
-                    '#hv_2_3':   'ze_test.json',
-                    '#hv_3_1':   'ze_test.json',
-                    '#hv_3_2':   'ze_test.json',
-                    '#hv_3_3':   'ze_test.json' };
+  var demos     = { '#hv_1_1':   '/hive/Boo',
+                    '#hv_1_2':   '/hive/Dylan',
+                    '#hv_1_3':   '/hive/Factor',
+                    '#hv_2_1':   '/hive/Gosu',
+                    '#hv_2_2':   '/hive/Mirah',
+                    '#hv_2_3':   '/hive/Nemerle',
+                    '#hv_3_1':   '/hive/Nu',
+                    '#hv_3_2':   '/hive/Parrot',
+                    '#hv_3_3':   '/hive/Self' };
 
   for (var demo in demos) {
 
@@ -34,7 +34,7 @@
 
       'axes': {
         'source':         { 'angle':  degree *   0 },
-        'source-target':  { 'angle':  degree * 120 },
+        'target-source':  { 'angle':  degree * 120 },
         'target':         { 'angle':  degree * 240 }
       }
     };
