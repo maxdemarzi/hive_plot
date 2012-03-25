@@ -1,0 +1,35 @@
+[
+  {
+    "name":     "test.so.a",
+    "imports":  [ "test.st.a", "test.st.b", "test.st.c",
+                  "test.to.a", "test.to.b" ]
+  }, {
+    "name":     "test.so.b",
+    "imports":  [ "test.st.a", "test.st.b", "test.st.c",
+                  "test.to.a", "test.to.b" ]
+  },
+
+
+  {
+    "name":     "test.st.a",
+    "imports":  [ "test.st.b", "test.st.c",
+                  "test.to.a", "test.to.b" ]
+  }, {
+    "name":     "test.st.b",
+    "imports":  [ "test.st.a", "test.st.c",
+                  "test.to.a", "test.to.b" ]
+  }, {
+    "name":     "test.st.c",
+    "imports":  [ "test.st.a", "test.st.b",
+                  "test.to.a", "test.to.b" ]
+  },
+
+
+  {
+    "name":     "test.to.a",
+    "imports":  [ ]
+  }, {
+    "name":     "test.to.b",
+    "imports":  [ ]
+  }
+]

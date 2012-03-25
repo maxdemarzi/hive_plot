@@ -1,0 +1,48 @@
+.axis {
+  stroke:               #000;
+  stroke-width:         1.5px;
+}
+
+svg {
+  border:               solid 1px #ccc;
+}
+
+
+.node {
+  stroke:               #000;
+}
+
+.node ellipse.active {
+  stroke:               red;
+  stroke-width:         4px;
+}
+
+
+.link {
+  fill:                 none;
+  stroke:               #ccc;
+  stroke-opacity:       .3;
+  stroke-width:         1.5px;
+}
+
+.link.active  {
+  stroke-opacity:       1;
+  stroke-width:         2px;
+}
+
+.link.active.im  {
+  stroke:               green;
+}
+
+.link.active.ib  {
+  stroke:               blue;
+}
+
+
+span.ib {
+  color:                blue;
+}
+
+span.im {
+  color:                green;
+}
