@@ -1,0 +1,2 @@
+2012-03-25 06:49:47.368+0000: Thread[main,5,main] Starting BatchInserter(EmbeddedBatchInserter[/home/ubuntu/batch-import/graph.db])
+2012-03-25 06:49:47.515+0000: Thread[main,5,main] Clean shutdown on BatchInserter(EmbeddedBatchInserter[/home/ubuntu/batch-import/graph.db])
