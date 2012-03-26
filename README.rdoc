@@ -15,7 +15,7 @@ Follow along on {Visualizing a set of Hiveplots with Neo4j}[http://wp.me/p26jdv-
   
 Then visit http://localhost:9292/index.html to see the examples.
 
-See an example running on heroku at {http://morning-sunset-4428.herokuapp.com/index.html}[http://morning-sunset-4428.herokuapp.com/index.html]
+See an example running on heroku at {http://hiveplot.herokuapp.com/index.html}[http://hiveplot.herokuapp.com/index.html]
 
 === Links
 
