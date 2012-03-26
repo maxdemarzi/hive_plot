@@ -6,20 +6,6 @@ var prep_data = function(plot_info, nodes) {
   var g       = plot_info.global
       g.nodes = nodes;
 
-  /*
-    The input data file, flare-imports.json, is firmly rooted in the
-    problem domain.  It uses a list of hashes (aka objects) to define
-    a directed graph.  Each hash defines a software module, giving its
-    name, size, and a list of names for modules it imports.
-
-    g.nodes = [
-      { "name":     "flare.analytics.cluster.AgglomerativeCluster",
-        "size":     3938,
-        "imports":  [ "flare.animate.Transitioner", ... ]
-      }, ...
-    ];
-  */
-
   var check_nodes = function(nodes) {
     var defined = {};
 
@@ -60,34 +46,12 @@ var prep_data = function(plot_info, nodes) {
 
   var index_by_node_name = function(d) {
     d.connectors          = [];
-    d.packageName         = d.name.split('.')[1];
+    d.packageName         = d.node_type;
     g.nodesByName[d.name] = d;
   };
 
   g.nodesByName   = {};
   g.nodes.forEach(index_by_node_name);
-
-  /*  Convert the import lists into links with sources and targets.
-      Save an index hash for looking up sources.
-
-    g.links = [
-      {
-        "source":  {
-          "degree":   0,
-          "node":     <nodesByName object>,
-          "type":     "source"
-        },
-
-        "target":  {
-          "degree":   0,
-          "node":     <nodesByName object>,
-          "type":     "source-target"
-      }, ... ];
-
-    g.sources = {
-      <target name>:  <source name>, ...
-    }
-  */
 
   var do_source = function(source) {
 
@@ -157,11 +121,6 @@ var prep_data = function(plot_info, nodes) {
     .sortKeys(d3.ascending)
     .entries(nodes);
 
-  // Duplicate the target-source axis as source-target.
-
-  g.nodesByType.push({ key:     'source-target',
-                       values:  g.nodesByType[2].values });
-
   // Compute the rank for each type, with padding between packages.
 
   var type_rank = function(type) {
@@ -185,7 +144,7 @@ var prep_data = function(plot_info, nodes) {
 
   // Console logging calls.
   
-  if (false) {
+  if (true) {
     console.log('g.links',          g.links); //T
     console.log('g.nodes',          g.nodes); //T
     console.log('g.nodesByType',    g.nodesByType); //T

@@ -29,9 +29,9 @@ var setup_mouse = function(plot_info) {
     if (!html_inp) return '';
 
     if (css_class == 'ib')
-      hdr  = '<h4 class="ib">Imported by:</h4>';
+      hdr  = '<h4 class="ib">Connected by:</h4>';
     else
-      hdr  = '<h4 class="im">Imports:</h4>';
+      hdr  = '<h4 class="im">Connected:</h4>';
 
     return '<span class="' + css_class+ '">'
          + hdr + html_inp + '</span>';
@@ -76,7 +76,7 @@ var setup_mouse = function(plot_info) {
 
     var html_ib   = on_mouseover_h('ib', sources);
     var html_im   = on_mouseover_h('im', targets);
-    var html      = '<h3>Node:</h3>' + d.node.name
+    var html      = '<h3>Node:</h3>' + d.node.name 
                   + html_ib + html_im;
 
     notes.html(html);

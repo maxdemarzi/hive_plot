@@ -26,7 +26,7 @@ get '/hive/:name' do
   temp_writers = []
 
   wroterepos(params[:name]).each_pair do |key, value|
-    repos << {"name" => key, "imports" => value}
+    repos << {"name" => key, "imports" => value, "node_type" => "repo"}
     temp_writers << { "name" => value[0] }
   end
 
@@ -39,17 +39,12 @@ get '/hive/:name' do
   end
 
   temp_writers.group_by {|i| i["name"]}.each do |w, f|
-    writers << {"name" => w, "imports" => f.collect{|y| y["imports"]}.flatten.uniq}
+    writers << {"name" => w, "imports" => f.collect{|y| y["imports"]}.flatten.uniq, "node_type" => "worker"}
   end
-
-  puts writers.inspect # collect{|y| y["name"]}.inspect
 
   temp_forkers.flatten.uniq.delete_if{|x| writers.collect{|y| y["name"]}.include?(x)}.each do |f|
-    forkers << {"name" => f, "imports" => []}
+    forkers << {"name" => f, "imports" => [], "node_type" => "forker"}
   end
-  puts "-------------------"
-  puts forkers.inspect
 
   (repos + writers + forkers).to_json
-
 end
